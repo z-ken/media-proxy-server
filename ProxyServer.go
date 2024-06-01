@@ -4,7 +4,6 @@ import (
 	"bufio"
 	"flag"
 	"fmt"
-	"github.com/z-ken/media-proxy-server/udp"
 	"io"
 	"log"
 	"net"
@@ -12,6 +11,8 @@ import (
 	"os"
 	"strconv"
 	"strings"
+
+	"github.com/z-ken/media-proxy-server/udp"
 )
 
 func handleFrontendInbound(conn net.Conn, inBoundChannel chan string, outBoundChannel chan string,
@@ -264,6 +265,7 @@ func main() {
 
 	defer ln.Close()
 
+	//main loop: accept connection
 	for {
 		conn, err := ln.Accept()
 
